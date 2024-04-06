@@ -4,7 +4,8 @@
   "description": "The demo for expressjs",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "devstart": "nodemon app.js"
   },
   "keywords": [
     "express",
@@ -13,6 +14,7 @@
   "author": "xhj",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
   }
 }
