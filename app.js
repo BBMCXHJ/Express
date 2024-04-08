@@ -1,28 +1,30 @@
 'use strict'
 
 const path = require('path')
+const createError = require('http-errors')
+const bodyParser = require('body-parser')
+const login = require('./routes/login')
+const order = require('./routes/order')
+
 const express = require('express')
 const app = express()
-const port = 3000
 
-// To create a virtual path prefix with static
-app.use('/static', express.static(path.join(__dirname, 'public')))
+// Set template engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-// the following handler is executed for requests to the route '/' 
-// whether using GET, POST, PUT, DELETE, or any other HTTP request method supported
-app.all('/', (req, res, next) => {
-  console.log('Accessing the / section ...')
-  next() // pass control to the next handler
+// To create a static
+app.use(express.static(path.join(__dirname, 'public')))
+// For post method
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// Set rourters
+app.use('/login', login)
+app.use('/order', order)
+
+// Throw 404 error when the requested url is not exists
+app.use(function (req, res, next) {
+  next(createError(404, 'request not found!'));
 })
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.post('/', (req, res) => {
-  res.send('Got a POST request')
-})
-
-app.listen(port, () => {
-  console.log(`App is running...\nPlease open the url: http://localhost:${port}`)
-})
+module.exports = app

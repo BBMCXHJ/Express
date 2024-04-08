@@ -1,0 +1,21 @@
+<%- include('../common/header'); -%>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+
+    <form action="/login" method="post">
+        <div class="mb-3">
+          <label for="email-input" class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="email-input">
+        </div>
+        <div class="mb-3">
+          <label for="password-input" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="password-input">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form
+</body>
+
+<%- include('../common/footer'); -%>

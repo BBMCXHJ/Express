@@ -1,0 +1,17 @@
+<%- include('../common/header'); -%>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+
+    <ul style="clear: both;">
+        <% people.forEach(function(b){%>
+            <li style="float: left; margin:0 10px;">
+                <%- b %>
+            </li>
+        <% })%>
+    </ul>
+</body>
+
+<%- include('../common/footer'); -%></input>

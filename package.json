@@ -4,17 +4,20 @@
   "description": "The demo for expressjs",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "devstart": "nodemon app.js"
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www"
   },
   "keywords": [
     "express",
-    "nodejs"
+    "nodejs",
+    "ejs"
   ],
   "author": "xhj",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.9",
     "express": "^4.19.2",
+    "morgan": "^1.10.0",
     "nodemon": "^3.1.0"
   }
 }
